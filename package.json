@@ -1,0 +1,65 @@
+{
+	"name": "@nicolasflamel/blake2b-react",
+	"version": "0.0.1",
+	"description": "React Native module for parts of the official BLAKE2b implementation",
+	"react-native": "src/index",
+	"source": "src/index",
+	"files": [
+		"src",
+		"android",
+		"ios",
+		"cpp",
+		"blake2b-react.podspec",
+		"BLAKE2-master",
+		"BLAKE2b-NPM-Package-master"
+	],
+	"scripts": {
+		"typescript": "tsc --noEmit",
+		"prepare": "bob build",
+		"bootstrap": "yarn",
+		"prepublishOnly": "wget \"https://github.com/BLAKE2/BLAKE2/archive/master.zip\" && unzip \"./master.zip\" && rm \"./master.zip\" && find \"./BLAKE2-master/\" -mindepth 1 -maxdepth 1 ! -name \"ref\" -exec rm -rf {} + && wget \"https://github.com/NicolasFlamel1/BLAKE2b-NPM-Package/archive/refs/heads/master.zip\" && unzip \"./master.zip\" && rm \"./master.zip\" && find \"./BLAKE2b-NPM-Package-master/\" -mindepth 1 ! -name \"main.cpp\" -exec rm -rf {} +"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NicolasFlamel1/BLAKE2b-React-Native-Module.git"
+	},
+	"keywords": [
+		"BLAKE2b"
+	],
+	"author": "Nicolas Flamel",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/NicolasFlamel1/BLAKE2b-React-Native-Module/issues"
+	},
+	"homepage": "https://github.com/NicolasFlamel1/BLAKE2b-React-Native-Module#readme",
+	"devDependencies": {
+		"@types/react": "~17.0.21",
+		"@types/react-native": "0.68.0",
+		"pod-install": "^0.1.0",
+		"react": "17.0.2",
+		"react-native": "0.68.2",
+		"react-native-builder-bob": "^0.18.3",
+		"typescript": "^4.5.2"
+	},
+	"resolutions": {
+		"@types/react": "17.0.21"
+	},
+	"peerDependencies": {
+		"react": "*",
+		"react-native": "*"
+	},
+	"react-native-builder-bob": {
+		"source": "src",
+		"output": "lib",
+		"targets": [
+			"commonjs",
+			"module",
+			[
+				"typescript",
+				{
+					"project": "tsconfig.build.json"
+				}
+			]
+		]
+	}
+}
